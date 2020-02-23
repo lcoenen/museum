@@ -1,0 +1,7 @@
+{
+  "name": "@lcoenen/onthego-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Loic Coenen",
+  "license": "GPL-3.0-or-later"
+}
