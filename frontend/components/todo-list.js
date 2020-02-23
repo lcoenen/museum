@@ -4,7 +4,7 @@ import { Task } from './task';
 
 const TodoList = ({list}) => (
 	<ul>
-		{list.map(task => <Task {task} />)}
+		{list.map(task => <Task {...task} />)}
 	</ul>
 )
 

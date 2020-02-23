@@ -3,5 +3,21 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Loic Coenen",
-  "license": "GPL-3.0-or-later"
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "apollo-server-restify": "^1.3.6",
+    "graphql": "^14.6.0",
+    "graphql-tools": "^4.0.7",
+    "restify": "^8.5.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4"
+  },
+  "scripts": {
+    "build": "babel src -d built",
+    "start": "node built/index.js",
+    "watch": "nodemon --exec \"yarn build && yarn start\" --watch src/ --ext js"
+  }
 }
