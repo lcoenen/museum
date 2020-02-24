@@ -4,7 +4,16 @@ import gql from 'graphql-tag';
 
 import { AddBar, TodoList } from '../components';
 
+const GET_LIST = gql`
+	query {
+		list { description }
+	}
+`;
+
 const Home = () => {
+
+  const { loading, error, data } = useQuery(GET_LIST);
+
 	const [ state, setState ] = useState({
 		list: [],
 		loading: false
@@ -15,7 +24,11 @@ const Home = () => {
 	return (
 		<div>
 			<h1>onTheGo coding exercise</h1>
-			<TodoList {...state} />
+			{!loading? 
+				<TodoList {...state} /> :
+				<p>Loading...</p>
+			}
+			{data}
 			<AddBar onAdd={addTask} />
 		</div>
 	);
