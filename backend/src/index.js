@@ -3,14 +3,26 @@ import restify from 'restify';
 import { makeExecutableSchema } from 'graphql-tools';
 import { graphqlRestify, graphiqlRestify } from 'apollo-server-restify';
 
-const typeDefs = `
+import gql from 'graphql-tag';
+
+const typeDefs = gql`
 	type Query { list: [Task] },
-	type Task { description: String }
+	type Task { id: Int!, description: String !}
+	type Mutation {
+		addTask(description: String): Int!
+	}
 `;
+
 const PORT = 2999;
 
 const resolvers = {
-	Query: { list: () => [{description: 'dummy task'}]}
+	Query: { list: () => [{id: 0, description: 'dummy task'}]},
+	Mutation: {
+		addTask: (_, {description}) => {
+			console.log({description});
+			return 0;
+		}
+	}
 }
 
 const schema = makeExecutableSchema({

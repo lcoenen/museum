@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Task = ({ description }) => <li key={description}>{description}</li>;
+const Task = ({ id, description }) => <li key={id}>{description}</li>;
 
 export { Task };
