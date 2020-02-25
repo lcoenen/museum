@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const AddBar = ({ onAdd }) => {
 	const [description, setDescription] = useState('');
 	const add = (e) => {
-		event.preventDefault();
+		e.preventDefault();
 		onAdd({description})
 	};
 	return (
