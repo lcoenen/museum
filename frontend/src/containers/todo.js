@@ -13,7 +13,7 @@ export const ADD_TASK = gql`
 const GET_LIST = gql`
 	query {
 		list {
-			id
+			_id
 			description
 		}
 	}

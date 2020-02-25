@@ -9,6 +9,7 @@
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
     "graphql-tools": "^4.0.7",
+    "mongodb": "^3.5.4",
     "restify": "^8.5.1",
     "restify-cors-middleware": "^1.1.1"
   },
