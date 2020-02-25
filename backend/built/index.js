@@ -26,7 +26,7 @@ var schema = (0, _graphqlTools.makeExecutableSchema)({
 
 var main = function main() {
   var server = _restify["default"].createServer({
-    title: 'Apollo Server'
+    title: 'onTheGo server'
   });
 
   var graphQLOptions = {

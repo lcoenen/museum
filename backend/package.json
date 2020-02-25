@@ -14,10 +14,11 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4"
+    "@babel/preset-env": "^7.8.4",
+    "eslint": "^6.8.0"
   },
   "scripts": {
-    "build": "babel src -d built",
+    "build": "eslint src/ && babel src -d built",
     "start": "node built/index.js",
     "watch": "nodemon --exec \"yarn build && yarn start\" --watch src/ --ext js"
   }
