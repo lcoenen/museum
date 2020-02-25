@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
-const AddBar = ({ onAsk }) => {
+const AddBar = ({ onAdd }) => {
 	const [description, setDescription] = useState('');
-
+	const add = (e) => {
+		event.preventDefault();
+		onAdd({description})
+	};
 	return (
 		<form>
 			<input
@@ -12,7 +15,7 @@ const AddBar = ({ onAsk }) => {
 				placeholder="Enter your task here"
 				id="description"
 			/>
-			<button onClick={e => onAsk(description)}>Add</button>
+			<button onClick={e => add(e)}>Add</button>
 		</form>
 	);
 };
