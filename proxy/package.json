@@ -1,0 +1,10 @@
+{
+  "name": "@lcoenen/onthego-proxy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Loic Coenen",
+  "license": "MIT",
+  "dependencies": {
+    "http-simple-proxy": "^1.0.5"
+  }
+}
