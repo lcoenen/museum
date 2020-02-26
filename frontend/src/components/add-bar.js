@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const AddBar = ({ onAdd, artists }) => {
-	const [artist, setArtist] = useState('');
+	const [artist, setArtist] = useState(artists[0]._id);
 	const [file, setFile] = useState('');
 
 	const add = (e) => {

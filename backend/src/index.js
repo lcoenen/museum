@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 
 import { makeExecutableSchema } from 'graphql-tools';
 import { graphqlRestify, graphiqlRestify } from 'apollo-server-restify';
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 
 const mongoServerUri =
 	'mongodb+srv://onTheGo:guest@anastasia-cwn7g.mongodb.net/test?retryWrites=true&w=majority';
@@ -40,7 +40,7 @@ const resolvers = {
 			return mongo
 				.db('tango')
 				.collection('artists')
-				.findOneAndUpdate({ _id }, { $push: { pictures: picture } })
+				.findOneAndUpdate({ _id: ObjectId(_id) }, { $push: { pictures: picture } })
 				.then(() => {
 					return 'Added';
 				});
