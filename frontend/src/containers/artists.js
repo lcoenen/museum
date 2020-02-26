@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
@@ -21,23 +21,31 @@ const GET_LIST = gql`
 `;
 
 const Artists = () => {
+	const [list, setList] = useState([])
+
 	const { loading, error, data } = useQuery(GET_LIST);
 	const [addPicture, e] = useMutation(ADD_PICTURE);
 
 	const onAdd = picture => {
 		addPicture({ variables: { id: picture.artist, picture: picture.file } });
+		const updatedList = list.map(artist => {
+			return artist._id === picture.artist? 
+				{...artist, pictures: [].concat(artist.pictures, picture.file)}:
+				artist;
+		})
+		setList(updatedList)
 	};
 
-	// console.log({loading, error, data});
-	// console.log(e)
+	if(!list.length && data) setList(data.list);
+
 
 	return (
 		<div>
 			<h1>Museum!</h1>
 			{!loading && !error ? (
 				<div>
-					<ArtistsList artists={data.list} />{' '}
-					<AddBar artists={data.list} onAdd={onAdd} />
+					<ArtistsList artists={list} />{' '}
+					<AddBar artists={list} onAdd={onAdd} />
 				</div>
 			) : (
 				<p>Loading...</p>

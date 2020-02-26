@@ -16,9 +16,13 @@ const AddBar = ({ onAdd, artists }) => {
 		fileReader.readAsDataURL(file);
 	}
 
+	const selectArtist = e => {
+		setArtist(e.target.value)	
+	} 
+
 	return (
 		<form>
-			<select value={artist} onChange={setArtist}>
+			<select value={artist} onChange={selectArtist}>
 				{artists.map(artist => <option value={artist._id}>{artist.name}</option>)}
 			</select>
 			<input
