@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
 
-const AddBar = ({ onAdd }) => {
-	const [description, setDescription] = useState('');
+const AddBar = ({ onAdd, artists }) => {
+	const [artist, setArtist] = useState('');
+	const [file, setFile] = useState('');
+
 	const add = (e) => {
 		e.preventDefault();
-		onAdd({description})
+		onAdd({artist, file})
 	};
+
+	const selectFile = e => {
+		const file = e.target.files[0];		
+		const fileReader = new FileReader();
+		fileReader.onload = e => setFile(e.target.result)
+		fileReader.readAsDataURL(file);
+	}
+
 	return (
 		<form>
+			<select value={artist} onChange={setArtist}>
+				{artists.map(artist => <option value={artist._id}>{artist.name}</option>)}
+			</select>
 			<input
-				type="text"
-				value={description}
-				onChange={e => setDescription(e.target.value)}
-				placeholder="Enter your task here"
-				id="description"
+				type="file"
+				onChange={selectFile}
 			/>
 			<button onClick={e => add(e)}>Add</button>
 		</form>

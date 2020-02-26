@@ -1,3 +1,3 @@
 export * from './add-bar';
-export * from './task';
-export * from './todo-list'
+export * from './artist';
+export * from './artists-list'

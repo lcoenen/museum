@@ -6,7 +6,7 @@ import {ApolloClient} from 'apollo-client';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import {HttpLink} from 'apollo-link-http';
 
-import {Todo} from './containers';
+import {Artists} from './containers';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -22,7 +22,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider  client={client}>
-      <Todo />
+      <Artists />
     </ApolloProvider>
   );
 }
