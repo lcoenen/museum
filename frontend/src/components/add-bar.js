@@ -6,7 +6,7 @@ const AddBar = ({ onAdd, artists }) => {
 
 	const add = (e) => {
 		e.preventDefault();
-		onAdd({artist, file})
+		if(file) onAdd({artist, file})
 	};
 
 	const selectFile = e => {
@@ -21,16 +21,18 @@ const AddBar = ({ onAdd, artists }) => {
 	} 
 
 	return (
-		<form>
-			<select value={artist} onChange={selectArtist}>
-				{artists.map(artist => <option value={artist._id}>{artist.name}</option>)}
-			</select>
-			<input
-				type="file"
-				onChange={selectFile}
-			/>
-			<button onClick={e => add(e)}>Add</button>
-		</form>
+		<div class="add-form">
+			<form>
+				<select value={artist} onChange={selectArtist}>
+					{artists.map(artist => <option value={artist._id}>{artist.name}</option>)}
+				</select>
+				<input
+					type="file"
+					onChange={selectFile}
+				/>
+				<button onClick={e => add(e)}>Add</button>
+			</form>
+		</div>
 	);
 };
 

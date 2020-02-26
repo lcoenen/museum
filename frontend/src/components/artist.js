@@ -4,7 +4,7 @@ const Artist = props => (
 	<div>
 		<h2>{props.children}</h2>
 		{props.pictures.map(picture => (
-			<img src={picture} />
+			<img class="demo" src={picture} />
 		))}
 	</div>
 );

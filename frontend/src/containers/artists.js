@@ -24,7 +24,7 @@ const Artists = () => {
 	const [list, setList] = useState([])
 
 	const { loading, error, data } = useQuery(GET_LIST);
-	const [addPicture, e] = useMutation(ADD_PICTURE);
+	const [addPicture] = useMutation(ADD_PICTURE);
 
 	const onAdd = picture => {
 		addPicture({ variables: { id: picture.artist, picture: picture.file } });
@@ -37,7 +37,6 @@ const Artists = () => {
 	};
 
 	if(!list.length && data) setList(data.list);
-
 
 	return (
 		<div>

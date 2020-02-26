@@ -1,3 +1,11 @@
-.App {
+body {
   text-align: center;
+}
+
+img.demo { 
+	height: 200px;
+}
+
+.add-form {
+	margin-top: 1em;
 }
