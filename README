@@ -1,1 +1,18 @@
 This is the template for on-the-go coding test.
+
+Usage
+*****
+
+```
+cd backend
+yarn
+yarn watch
+cd ../frontend
+yarn
+yarn start
+```
+
+This is a monorepo using two [yarn
+workspace](https://classic.yarnpkg.com/en/docs/workspaces/).  The backend is
+using nodemon to lint and build the code. The frontend is a simple
+react-create-app. 
